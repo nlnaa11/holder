@@ -1,9 +1,6 @@
 #include <iostream>
-#include <set>
-#include <algorithm>
 #include <fstream>
 #include <string>
-#include <memory>
 #include <ctime>
 #include "treeHld.h"
 #include "baseHolder.h"

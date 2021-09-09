@@ -2,7 +2,6 @@
 #define BASEHOLDER_H
 
 #include <iostream>
-#include <string>
 
 class BaseHolder
 {

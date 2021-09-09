@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <string>
 #include <sstream>
 #include <regex>
 #include "treeHld.h"
@@ -33,28 +34,20 @@ void TreeHld::restoreTree(std::string&& treeData)
     for(std::string word; data >> word;
         list.emplace_back(word));
 
-    std::regex int_word{ "(\\b-?[0-9]+\\b)" };
-    std::regex double_word{ "(\\b-?[0-9]+\\.+[0-9]+\\b)" };
+    std::regex int_word{ "^(-?[0-9]+\\b)" };
+    std::regex double_word{ "^(-?[0-9]+\\.+[0-9]+\\b)" };
 
     for(auto& word : list)
     {
-        data.clear();
-
         if(std::regex_search(word, double_word))
         {
-            double d_data;
             //std::cout << word << " D\n";
-            data << word;
-            data >> d_data;
-            insertDouble(d_data);
+            insertDouble(std::stod(word));
         }
         else if(std::regex_search(word, int_word))
         {
-            int i_data;
             //std::cout << word << " Int\n";
-            data << word;
-            data >> i_data;
-            insertInt(i_data);
+            insertInt(std::stoi(word));
         }
         else // char[10]
         {

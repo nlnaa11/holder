@@ -1,7 +1,6 @@
 #ifndef CHARARRAYHOLDER_H
 #define CHARARRAYHOLDER_H
 
-#include <utility>
 #include "baseHolder.h"
 
 class CharArrayHolder : public BaseHolder
